@@ -1,0 +1,48 @@
+<head></head>
+<h1>Substitute Teacher Paycheck Calculator</h1>
+  <!-- you can include the HTML from other pens in your pen -->
+ <center>
+<form name=paycheck>
+<table border=1>
+<tr>
+<td bgcolor="#c0c0c0" align=right>Days as Regular Substitute Teacher:</td>
+<td><input type="number" size=20 name=STdays></td>
+</tr>
+<tr>
+<td align=right>Days as long-term Substitute Teacher:</td>
+<td><input type="number" name=LTSTdays size=20></td>
+</tr>
+<tr>
+<td align=right>Amount of Fridays for Bonus:</td>
+<td><input type="number" name=Fdays size=20></td>
+</tr>
+<tr>
+<td align=right>Tax Rate %</td>
+<td><input type="number" name=taxrate value=12 size=20></td>
+</tr>
+<tr>
+<td align=right>Total Taxes:</td>
+<td><input type=text name=tax size=20></td>
+</tr>
+<tr>
+<td align=right>Other Deductions:</td>
+<td><input type=text name=other value=0 size=20></td>
+</tr>
+  <tr class="blank_row">
+    <td colspan=2 align=center>
+  </tr>
+  <tr>
+    <td align=right><b>Gross Income</b></td>
+    <td> <input type=text name=grossIncome size=20></td>
+  </tr>
+<tr>
+<td align=right bgcolor="green"><b>Your Paycheck:</b></td>
+<td><input type=text name=total size=20></td>
+</tr>
+<tr>
+<td colspan=4 align=center><input type=button value="Calculate" onClick="compute()">
+</td>
+</tr>
+</table>
+</form>
+</center>
