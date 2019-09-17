@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Substitute Teacher Paycheck Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Faustina|Great+Vibes|Sansita&display=swap" rel="stylesheet">
+  <meta property="og:image" content="images/social-preview.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mirikitomo.github.io/paycheck_calculator/">
+  <meta property="og:title" content="Substitute Teacher Paycheck Calculator">
+  <meta property="og:description" content="Simple calculator for substitute teachers">
+
+  <script>
+    function compute() {
+      var regularDays = document.getElementById("STdays").value * 90;
+      var longtermDays = document.getElementById("LTSTdays").value * 105;
+      var fridaysRate = document.getElementById("Fdays").value * 10;
+
+      var grossTotal = Number(regularDays) + Number(longtermDays) + Number(fridaysRate);
+      var taxTotal = grossTotal * (document.getElementById("taxrate").value / 100);
+      var otherDeductions = document.getElementById("other").value;
+      var paycheckTotal = grossTotal - taxTotal - otherDeductions;
+
+      document.getElementById("tax").value = taxTotal.toFixed(2);
+      document.getElementById("grossIncome").value = "$" + grossTotal;
+      document.getElementById("total").value = "$" + paycheckTotal.toFixed(2);
+    }
+  </script>
+</head>
+
+<body>
+  <div class="top-container">
+    <img class="calc" src="images/calculator.png" alt="calculator-image">
+    <h2>Substitute Teacher Paycheck Calculator</h2>
+  </div>
+  <!-- you can include the HTML from other pens in your pen -->
+  <div class="middle-container">
+    <center>
+      <form id="paycheck">
+        <table border=1>
+          <tr>
+            <td bgcolor="#c0c0c0" align=right>Days as Regular Substitute Teacher:</td>
+            <td><input type="number" size=20 id="STdays"></td>
+          </tr>
+          <tr>
+            <td align=right>Days as long-term Substitute Teacher:</td>
+            <td><input type="number" id="LTSTdays" size=20></td>
+          </tr>
+          <tr>
+            <td align=right>Amount of Fridays for Bonus:</td>
+            <td><input type="number" id="Fdays" size=20></td>
+          </tr>
+          <tr>
+            <td align=right>Tax Rate %</td>
+            <td><input type="number" id="taxrate" value=7.65 size=20></td>
+          </tr>
+          <tr>
+            <td align=right>Total Taxes:</td>
+            <td><input type=text id="tax" size=20 readonly></td>
+          </tr>
+          <tr>
+            <td align=right>Other Deductions:</td>
+            <td><input type=text id="other" value=0 size=20></td>
+          </tr>
+          <tr class="blank_row">
+            <td colspan=2 align=center>
+          </tr>
+          <tr>
+            <td align=right><b>Gross Income</b></td>
+            <td> <input type=text id="grossIncome" size=20 readonly></td>
+          </tr>
+          <tr>
+            <td align=right bgcolor="#90ee90"><b>Your Paycheck:</b></td>
+            <td><input type=text id="total" size=20 readonly></td>
+          </tr>
+          <tr>
+            <td colspan=4 align=center><a class="btn" href="#" onclick="compute();">Calculate</a>
+              <!-- input type=button class="btn" value="Calculate" onClick="compute()" -->
+            </td>
+          </tr>
+        </table>
+      </form>
+    </center>
+
+    <div class="contact-me">
+      <h2>Get In Touch</h2>
+      <h3>If you want to talk about web design or have a feedback.</h3>
+      <p>Have an awesome idea that would like to create? Let's talk about how to design it on a website. I'm still learning but will be happy to help if you let me.</p>
+      <a class="btn" href="mailto:steven.chaparro@icloud.com">CONTACT ME</a>
+    </div>
+  </div>
+
+  <div class="bottom-container">
+    <a class="footer-link" href="https://www.linkedin.com/in/stevenchaparro" target=_blank>LinkedIn</a>
+    <a class="footer-link" href="https://www.facebook.com/Schaparro" target=_blank>Facebook</a>
+    <a class="footer-link" href="https://mirikitomo.github.io/cv/" target=_blank>Personal CV webite</a>
+    <a class="footer-link" href="https://mirikitomo.github.io/steven-new-website/" target=_blank>Steven's new website</a>
+    <p class="author">© 2019 Steven Chaparro Gamarra.</p>
+  </div>
+  <div>Calculator Icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+</body>
+
+</html>
