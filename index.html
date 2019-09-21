@@ -23,11 +23,15 @@
       var fridaysRate = document.getElementById("Fdays").value * 10;
 
       var grossTotal = Number(regularDays) + Number(longtermDays) + Number(fridaysRate);
-      var taxTotal = grossTotal * (document.getElementById("taxrate").value / 100);
+      var fica457 = grossTotal * ( 7.5 / 100);
+      var medicareTax = grossTotal * (1.45 / 100);
+      var taxTotal = (grossTotal - fica457) * (document.getElementById("taxrate").value / 100);
       var otherDeductions = document.getElementById("other").value;
-      var paycheckTotal = grossTotal - taxTotal - otherDeductions;
+      var paycheckTotal = grossTotal - taxTotal - medicareTax - fica457 - otherDeductions;
 
       document.getElementById("tax").value = taxTotal.toFixed(2);
+      document.getElementById("fica457").value = "$" + fica457.toFixed(2);
+      document.getElementById("medicareTax").value = "$" + medicareTax.toFixed(2);
       document.getElementById("grossIncome").value = "$" + grossTotal;
       document.getElementById("total").value = "$" + paycheckTotal.toFixed(2);
     }
@@ -58,11 +62,19 @@
           </tr>
           <tr>
             <td align=right>Tax Rate %</td>
-            <td><input type="number" id="taxrate" value=7.65 size=20></td>
+            <td><input type="number" id="taxrate" value=0.678 size=20></td>
           </tr>
           <tr>
-            <td align=right>Total Taxes:</td>
+            <td align=right>Federal Income Tax:</td>
             <td><input type=text id="tax" size=20 readonly></td>
+          </tr>
+          <tr>
+            <td align=right>457 FICA Alternative:</td>
+            <td><input type=text id="fica457" size=20 readonly></td>
+          </tr>
+          <tr>
+            <td align=right>Medicare Tax:</td>
+            <td><input type=text id="medicareTax" size=20 readonly></td>
           </tr>
           <tr>
             <td align=right>Other Deductions:</td>
